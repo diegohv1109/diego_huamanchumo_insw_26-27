@@ -10,7 +10,12 @@ public class CalculatorTestCase {
         calculator = new Calculator();
    }
    @Test 
-   void multiplyTest() {
-        assertEquals(6, calculator.multiply(2, 3));
+   public void multiplyTest() {
+     assertEquals(6, calculator.multiply(2, 3));
+   }
+   
+   @Test 
+   public void concatTest() {
+     assertEquals("HolaMundo!", calculator.concat("Hola", "Mundo!"));
    }
 }
