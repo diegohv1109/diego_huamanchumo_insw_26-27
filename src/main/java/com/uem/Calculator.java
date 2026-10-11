@@ -6,7 +6,10 @@ public class Calculator {
     public final static String EMPTY = "empty";
 
     // Multiply two integers
-    public int multiply(int a, int b) {
+    //public int multiply(int a, int b) {
+    //    return a * b;
+    //}
+    public double multiply(int a, double b) {
         return a * b;
     }
 
