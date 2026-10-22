@@ -10,6 +10,11 @@ public class Article {
     private double precio;
     private double descuento;
 
+    // Creamos una clase vacía para poder añadir los datos de JSON
+    public Article() {
+
+    }
+    
     // Constructor
     public Article(String nombre, int cantidad, double precio, double descuento) {
         this.nombre = nombre;

@@ -9,6 +9,11 @@ public class Order {
     private String idPedido;
     private List<Article> articulos;
 
+    // Creamos una clase vacía para poder añadir los datos de JSON
+    public Order() {
+
+    }
+
     public Order(String idPedido, List<Article> articulos) {
         this.idPedido = idPedido;
         this.articulos = articulos;

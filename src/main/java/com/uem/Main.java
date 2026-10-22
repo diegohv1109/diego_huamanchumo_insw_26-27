@@ -1,7 +1,28 @@
 package com.uem;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.uem.model.Order;
+import java.util.List;
+
 public class Main {
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    
     public static void main(String[] args) {
-        System.out.println("Hola, que tal?");
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+
+            var inputStream = Main.class.getResourceAsStream("/orders.json");
+
+            List<Order> orders = mapper.readValue(inputStream, new TypeReference<List<Order>>(){});
+
+            for (Order order : orders) {
+                log.debug("Loaded order: {}", order.getIdPedido());
+            }
+        } catch (Exception e) {
+            log.error("Error al procesar el archivo JSON", e);
+        }
     }
 }
