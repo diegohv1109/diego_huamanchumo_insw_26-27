@@ -4,7 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.uem.controller.OrderController;
 import com.uem.model.Order;
+import com.uem.view.OrderView;
+
 import java.util.List;
 
 public class Main {
@@ -21,6 +25,10 @@ public class Main {
             for (Order order : orders) {
                 log.debug("Loaded order: {}", order.getIdPedido());
             }
+            
+            OrderView view = new OrderView();
+            new OrderController(view, orders);
+
         } catch (Exception e) {
             log.error("Error al procesar el archivo JSON", e);
         }
